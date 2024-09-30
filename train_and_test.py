@@ -9,6 +9,10 @@ import train_models
 import evaluate_models
 from src.commons import set_seed
 
+from clearml import Task
+
+task = Task.init(project_name="Thesis_ADD", task_name="Small sample training model - SpecRnet")
+
 
 LOGGER = logging.getLogger()
 LOGGER.setLevel(logging.INFO)
@@ -145,3 +149,6 @@ if __name__ == "__main__":
         amount_to_use=args.test_amount,
         device=device,
     )
+
+task.close() 
+
