@@ -22,26 +22,6 @@ formatter = logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
 ch.setFormatter(formatter)
 LOGGER.addHandler(ch)
 
-
-for epoch in range(1, args.epochs + 1):
-    # Your training loop
-    # After each epoch, log the metrics
-
-    # Example: Assuming you append the loss and accuracy to these lists
-    training_loss.append(0.5)  # Replace with actual loss value
-    validation_loss.append(0.4)  # Replace with actual validation loss
-    training_accuracy.append(0.8)  # Replace with actual training accuracy
-    validation_accuracy.append(0.85)  # Replace with actual validation accuracy
-
-    # Log scalars for loss and accuracy
-    logger.report_scalar("Loss", "Training Loss", value=training_loss[-1], iteration=epoch)
-    logger.report_scalar("Loss", "Validation Loss", value=validation_loss[-1], iteration=epoch)
-    logger.report_scalar("Accuracy", "Training Accuracy", value=training_accuracy[-1], iteration=epoch)
-    logger.report_scalar("Accuracy", "Validation Accuracy", value=validation_accuracy[-1], iteration=epoch)
-
-    # Optional: If you want to log some image/plot, use logger.report_image()
-
-
 def parse_args():
     parser = argparse.ArgumentParser()
 
